@@ -6,8 +6,29 @@ body{
     height: 100%;
     width: 100%;
 }
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.panel{
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 640px;
+}
 .square{
-    width: 20px;
-    height: 20px;
+   /* width: 10px;
+    height: 10px; */
     background-color: aquamarine;
+}
+.square:hover{
+    background-color: yellowgreen;
+}
+.row{
+    display: flex;
+}
+.hover {
+    background-color: hotpink;
 }
