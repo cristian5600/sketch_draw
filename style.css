@@ -1,0 +1,13 @@
+html {
+    height:100%;
+}
+body{
+    background-color: rgb(74, 71, 71);
+    height: 100%;
+    width: 100%;
+}
+.square{
+    width: 20px;
+    height: 20px;
+    background-color: aquamarine;
+}
