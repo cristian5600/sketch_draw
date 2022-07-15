@@ -18,11 +18,11 @@ body{
     width: 640px;
     height: 640px;
 }
-.square{
+ .square{
    /* width: 10px;
     height: 10px; */
     background-color: aquamarine;
-}
+} 
 .square:hover{
     background-color: yellowgreen;
 }
@@ -31,4 +31,7 @@ body{
 }
 .hover {
     background-color: hotpink;
+}
+form{
+    margin:20px;
 }

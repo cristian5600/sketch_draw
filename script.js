@@ -1,34 +1,39 @@
-const SIZE_OF_SQUARE = 10;
 const panel = document.querySelector(`.panel`);
-const row = document.createElement(`div`);
- /*for(let i = 0; i< panel.clientHeight/SIZE_OF_SQUARE; i++){
-    let row = document.createElement(`div`);
-    row.classList.add(`row`);
-    for(let j = 0; j< panel.clientHeight/SIZE_OF_SQUARE; j++){
-        let div = document.createElement(`div`);
-        div.classList.add(`square`);
-        row.appendChild(div);  
-    }
-    panel.appendChild(row);
-}
-for(let i =0; i< panel.clientHeight/SIZE_OF_SQUARE -1 ;i++){
-    let aux = row;
-    panel.appendChild(aux);
-} */
+//onst input = document.querySelector(`input`);
+
 createGrid(10);
+let squares = document.querySelectorAll(`.square`);
 
 
+input = document.getElementsByName(`inputbox`);
+const buton = document.getElementsByClassName('bt');
+
+
+/*squares.forEach(square => square.addEventListener(`mouseover`, function(e){
+    square.classList.add(`hover`);
+}));*/
+    
+buton[0].addEventListener('click',function(e) { 
+    console.log("i dont get it");
+    sequence(parseInt(input[0].value))
+});
+//buton.addEventListener(`keypress`,console.log(`plrrrm`));
+//document.getElementsByClassName(`button`).addEventListener(`click`,sequence(parseInt(input[0].value)));
 function clear(){
     while(panel.lastChild){
         panel.removeChild(panel.lastChild);
     }
 }
+function sequence(value){
+    clear();
+    
+    createGrid(value);
+    squares = document.querySelectorAll(`.square`);
+}
 function createGrid(size){
-    let changeDimensions = document.querySelectorAll(`square`);
-    changeDimensions.forEach(thing => console.log(thing));
+    //let changeDimensions = document.querySelectorAll(`square`);
+    //changeDimensions.forEach(thing => console.log(thing));
 
-    //changeDimensions.setAttribute("style","width:10px");
-    //changeDimensions.setAttribute("style","height:10px");
 
     for(let i = 0; i< panel.clientHeight/size; i++){
         let row = document.createElement(`div`);
@@ -42,14 +47,17 @@ function createGrid(size){
         }
         panel.appendChild(row);
     }
-    for(let i =0; i< panel.clientHeight/size -1 ;i++){
+    /*for(let i =0; i< panel.clientHeight/size -1 ;i++){
         let aux = row;
         panel.appendChild(aux);
-    }
+    }*/
+    document.querySelectorAll(`.square`).forEach(square => square.addEventListener(`mouseover`, function(e){
+        square.classList.add(`hover`);
+    }));
 }
-const squares = document.querySelectorAll(`.square`);
-squares.forEach(square => square.addEventListener(`mouseover`, function(e){
-    square.classList.add(`hover`);
-})
-    
-);
+
+function testResults (form) {
+    var TestVar = form.inputbox.value;
+    alert ("You typed: " + TestVar);
+    return TestVar;
+};
