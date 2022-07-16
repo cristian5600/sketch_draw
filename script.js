@@ -1,41 +1,32 @@
 const panel = document.querySelector(`.panel`);
-//onst input = document.querySelector(`input`);
-
-createGrid(10);
-let squares = document.querySelectorAll(`.square`);
-
-
 input = document.getElementsByName(`inputbox`);
 const buton = document.getElementsByClassName('bt');
 
+createGrid(10); // a demonstration
 
-/*squares.forEach(square => square.addEventListener(`mouseover`, function(e){
-    square.classList.add(`hover`);
-}));*/
+
+buton[0].addEventListener('click',function(e) {//when clicked, starts the sequence
     
-buton[0].addEventListener('click',function(e) { 
-    console.log("i dont get it");
     sequence(parseInt(input[0].value))
 });
-//buton.addEventListener(`keypress`,console.log(`plrrrm`));
-//document.getElementsByClassName(`button`).addEventListener(`click`,sequence(parseInt(input[0].value)));
+
+// this clears the screen and creates a new sketch
+function sequence(value){
+    clear(); 
+    createGrid(value);
+}
+    //this clears the screen and deletes the squares
 function clear(){
     while(panel.lastChild){
         panel.removeChild(panel.lastChild);
-    }
-}
-function sequence(value){
-    clear();
-    
-    createGrid(value);
-    squares = document.querySelectorAll(`.square`);
-}
+    }}
 function createGrid(size){
-    //let changeDimensions = document.querySelectorAll(`square`);
-    //changeDimensions.forEach(thing => console.log(thing));
-
-
-    for(let i = 0; i< panel.clientHeight/size; i++){
+    // this creates the rows and squares
+    if(size > 640){
+        alert("max size is 640px");
+        return;
+    }
+    for(let i = 0; i< panel.clientHeight/size ; i++){ //how many rows
         let row = document.createElement(`div`);
         row.classList.add(`row`);
         for(let j = 0; j< panel.clientHeight/size; j++){
@@ -47,17 +38,8 @@ function createGrid(size){
         }
         panel.appendChild(row);
     }
-    /*for(let i =0; i< panel.clientHeight/size -1 ;i++){
-        let aux = row;
-        panel.appendChild(aux);
-    }*/
+    //adding event listeners to the new squares
     document.querySelectorAll(`.square`).forEach(square => square.addEventListener(`mouseover`, function(e){
         square.classList.add(`hover`);
     }));
 }
-
-function testResults (form) {
-    var TestVar = form.inputbox.value;
-    alert ("You typed: " + TestVar);
-    return TestVar;
-};

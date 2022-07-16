@@ -26,12 +26,16 @@ body{
 .square:hover{
     background-color: yellowgreen;
 }
+.sizeSelector{
+    display: flex;
+    flex-direction: column;
+}
 .row{
     display: flex;
 }
 .hover {
     background-color: hotpink;
 }
-form{
-    margin:20px;
+input{
+    margin:40px;
 }
